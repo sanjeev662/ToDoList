@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="box" id="heading">
+    <h1><%= listTitle %></h1>
+    </div>
+
+    <div class="box">
+
+       <% for(var i=0;i<newListItems.length;i++){ %>
+
+        <form action="/delete" method="post">
+            <div class="item">
+                <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id %>" onChange="this.form.submit()"> 
+                <p><%= newListItems[i].name %></p>
+            </div>
+        </form>
+        <% } %>
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="New Item">
+            <button type="submit" name="list" value=<%= listTitle %>>+</button>
+        </form>
+
+    </div>
+
+</body>
+<footer>
+    Copyright 2022 sks singh
+</footer>
+</html>
