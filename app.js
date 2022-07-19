@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb+srv://admin:admin123@todolistcluster.pr9jm.mongodb.net/toDoListDb",{useNewUrlParser:true});
 
-const itemsSchema={
+const itemsSchema={   
   name:String
 };
 
@@ -94,5 +94,5 @@ app.get("/about",function(req,res)
 })
 
 app.listen(port, function(){
-  console.log("Server started on port ${port}");
+  console.log("Server started successfully");
 });
