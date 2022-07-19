@@ -7,6 +7,7 @@ const { getDate } = require("./date");
 const date = require(__dirname + "/date.js");
 
 const app = express();
+const port=process.env.PORT || 3000;
 
 app.set("view engine","ejs");
 
@@ -27,7 +28,7 @@ const item1=new Itema({
   name: "Welcome to your toDoList!"
 });
 
-const item2=new Itema({
+const item2=new Itema({ 
   name:"Lets start"
 });
 
@@ -92,6 +93,6 @@ app.get("/about",function(req,res)
   res.render("about");
 })
 
-app.listen(3000, function(){
-  console.log("Server started on port 3000.");
+app.listen(port, function(){
+  console.log("Server started on port ${port}");
 });
