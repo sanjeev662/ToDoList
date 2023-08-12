@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -16,7 +16,9 @@ app.use(express.static("public"));
 
 //yaha se mongodb ka part suru hai
 
-mongoose.connect("mongodb+srv://admin:admin123@todolistcluster.pr9jm.mongodb.net/toDoListDb",{useNewUrlParser:true});
+const mongoURI = process.env.mongoURI
+
+mongoose.connect(mongoURI,{useNewUrlParser:true});
 
 const itemsSchema={   
   name:String
